@@ -11,6 +11,7 @@ public class A7 {
     // return sorted File object
     public static File fileWordSort (File file) {
 
+
         ArrayList<String> words = new ArrayList<>();
         String filePathName = String.format("/Users/Amin/IdeaProjects/" +
                 "Java_W4_D04_fasy_amin/Amin/my_file/%s_sorted.txt", file.getName());
