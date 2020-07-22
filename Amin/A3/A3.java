@@ -1,10 +1,39 @@
 package A3;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class A3 {
+
+    // countEgg() method
+    public static int countEgg (File file) {
+        int counter = 0;
+        try {
+            ArrayList<String> words = new ArrayList<>();
+
+            Scanner sc = new Scanner(file);
+            while (sc.hasNext()) {
+                words.add(sc.next());
+            }
+            for (String str : words) {
+                if (str.equalsIgnoreCase("egg")) {
+                    counter++;
+                }
+            }
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Error occurred while counting eggs!");
+            e.printStackTrace();
+        }
+
+        return counter;
+    }
+
+
+
     public static void main(String[] args) {
 
         try {
@@ -36,6 +65,9 @@ public class A3 {
             }
             scanner.close();
 
+            System.out.printf("%nEgg repeated %d times in the text file '%s.' %n",
+                    countEgg(readmeFile),  readmeFile.getName());
+
         } catch (Exception e) {
             System.out.println("An error occurred while reading 'readme.txt'!");
             e.printStackTrace();
@@ -43,7 +75,7 @@ public class A3 {
         }
 
 
-        // countEgg() method
+
     }
 
 }
